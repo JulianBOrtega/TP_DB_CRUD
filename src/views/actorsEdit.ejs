@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include('./partials/head.ejs') %> 
+    <body>
+        <%- include('./partials/header.ejs') %> 
+        
+        <main>
+            <h1 class="titulo">Editando actor: <%= actor.first_name %> <%= actor.last_name %> </h1>
+            <br>
+            <section class="formulario">
+                <form action="/actors/update/<%= actor.id %> " method="POST">
+                    <label for="first_name">First name </label>
+                    <p><input type="text" name="first_name" id="" value="<%= actor.first_name %>" required></p>
+                    <label for="last_name">Last name </label>
+                    <p><input type="text" name="last_name" id="" value="<%= actor.last_name %>" required></p>
+                    <label for="rating">Rating </label>
+                    <p><input type="number" name="rating" id="" value="<%= actor.rating %>" required> </p>
+                    <label for="movieID">Favorite movie </label>
+                    <p>
+                        <select name="favorite_movie_id" id="">
+                            <option value="" disabled>- select movie -</option>
+                            <% movies.forEach(movie => { %>
+                             <option value="<%= movie.id %>" <% if (movie.id == actor.favorite_movie_id) { %><%= 'selected' %><% }; %>><%= movie.title %></option>
+                            <% }) %>
+                        </select>
+                    </p>
+                    <br>
+                    <p>
+                        <button class="botonAgregar" type="submit">Actualizar</button>
+                        <a class="botonVolver" href="/actors">Listado de Actores</a>
+                    </p>
+                </form>
+            </section>
+        </main>
+    </body>
+</html>

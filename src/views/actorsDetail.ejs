@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include('./partials/head.ejs') %> 
+    <body>
+        <%- include('./partials/header.ejs') %>  
+    
+        <main>
+            <h1><%= actor.first_name %> <%= actor.last_name %></h1>
+            <% if (actor.first_name == "Eric" && actor.last_name == "Mena") { %>
+                <br>
+                <img width="200px" src="/img/ericelrey.png" alt="ericmena">
+            <% } %>
+            <br>
+            <p>NAME: <%= actor.first_name + " " + actor.last_name %></p>
+            <p>RATING: <%= actor.rating %> </p>
+            <% if (actor.movies[0]) { %>
+                <p>FAVORITE MOVIE: <a href="/movies/detail/<%= actor.movies[0].id %> "><%= actor.movies[0].title %></a></p>
+            <% } %>
+            
+            <br><br>
+            <section>
+                <a class="button" style="color: white;" href="/actors/edit/<%= actor.id %>">Editar</a>
+                <a class="button" style="color: white;" href="/actors/delete/<%= actor.id %>">Borrar</a>
+            </section>
+            <br><br><hr><br><br>
+            <section>
+                <a class="button" style="color: white;" href="/actors/add">Registrar nuevo actor</a>
+                <a class="button" style="color: white;" href="/actors/">Ver listado de actores</a>
+            </section>
+        </main>
+    </body>
+</html>

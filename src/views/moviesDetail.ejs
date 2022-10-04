@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %> 
+    <body>
+        <%- include('./partials/header.ejs') %> 
+        
+        <main>
+            <h1><%= movie.title %> </h1>    
+            <br>
+            <p>RATING: <%= movie.rating %> </p>
+            <p>AWARDS: <%= movie.awards %> </p>
+            <p>LENGTH: <%= movie.length + ' min'%> </p>
+            <p>RELEASE DATE: <%= movie.release_date %> </p>
+            <% if(movie.genre) { %> 
+                <p>GENRE: <a href="/genres/detail/<%= movie.genre.id %>"><%= movie.genre.name %></a></p>
+            <% } else {%>
+                <p>GENRE: Sin género</p>
+            <% } %>  
+
+            <br>
+            
+            <h4>Actores</h4>
+            <% if (movie.actors.length) { %>
+                <ul>
+                    <% movie.actors.forEach(actor => { %>
+                    <li><a href="/actors/detail/<%= actor.id %>"><%= actor.first_name %> <%= actor.last_name %></a></li>
+                    <% }) %>
+                </ul>
+            <% } else { %>
+                <p>La película no tiene actores registrados</p>
+            <% } %> 
+            <br>
+            <br>
+            <section>
+                <a class="button" style="color: white;" href="/movies/edit/<%= movie.id %>">Editar</a>
+                <a class="button" style="color: white;" href="/movies/delete/<%= movie.id %>">Borrar</a>
+            </section>
+            <br><br><hr><br><br>
+            <section>
+                <a class="button" style="color: white;" href="/movies/add">Agregar nueva película</a>
+                <a class="button" style="color: white;" href="/movies/">Ver listado de películas</a>
+            </section>
+        </main>
+    </body>
+</html>

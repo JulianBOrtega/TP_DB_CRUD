@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %> 
+    <body>
+        <%- include('./partials/header.ejs') %> 
+        
+        <main>
+            <h1>LISTADO DE PELÍCULAS</h1>
+            <br>
+            <ul>
+                <% for( let i = 0; i < movies.length; i++ ) { %>
+                    <li>
+                        <a href="/movies/detail/<%= movies[i].id %>"><%= movies[i].title %></a>
+                    </li>
+                <% } %>
+            </ul>
+            <br>
+            <br>
+            <a class="botonAgregar button" style="color:white" href="/movies/add">Agregar una película</a>
+        </main>
+    </body>
+</html>

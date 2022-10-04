@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %> 
+    <body>
+        <%- include('./partials/header.ejs') %> 
+        
+        <main>
+            <h1>PELÍCULAS ORDENADAS POR POSICIÓN</h1>
+            <br>
+            <ul>
+                <% for( let i = 0; i < movies.length; i++ ) { %>
+                    <li>
+                        <a href="/movies/detail/<%=movies[i].id%>"><%= movies[i].title %></a>
+                        <br>
+                        <small><%= 'RATING: ' + movies[i].rating %></small>
+                        <br><br>
+                    </li>
+                <% } %>
+            </ul>
+        </main>
+    </body>
+</html>

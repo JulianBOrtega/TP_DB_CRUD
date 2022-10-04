@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %> 
+    <body>
+        <%- include('./partials/header.ejs') %> 
+
+        <main>
+            <h1>LISTADO DE ACTORES</h1>
+            <br>
+            <ul>
+                <% for( let i = 0; i < actors.length; i++ ) { %>
+                <li>
+                    <a href="/actors/detail/<%= actors[i].id %>"><%= actors[i].first_name + " " + actors[i].last_name %></a>
+                </li>
+                <% } %>
+            </ul>
+
+            <br>
+            <br>
+            <a class="botonAgregar button" style="color:white" href="/actors/add">Registrar nuevo actor</a>
+        </main>
+    </body>
+</html>

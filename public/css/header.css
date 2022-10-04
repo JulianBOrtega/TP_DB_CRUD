@@ -1,0 +1,39 @@
+.header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #da1b3b;
+    padding: 10px;
+}
+
+.header #logo
+{
+    background-color: white;
+    padding: 5px 25px;
+    border-radius: 50px;
+    margin-left: 15px;
+}
+
+.header #logo img
+{
+    width: 125px;
+}
+
+.header div
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    margin-right: 45px;
+}
+
+.header div a
+{
+    height: 25px;
+    font-size: 18px;
+    font-weight: 500;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}

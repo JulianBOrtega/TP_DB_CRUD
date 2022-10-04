@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include('./partials/head.ejs') %> 
+    <body>
+        <%- include('./partials/header.ejs') %> 
+        
+        <main>
+            <h1 class="titulo">Agregar Actor</h1>
+            <br>
+            <section class="formulario">
+                <form action="/actors/create" method="POST">
+                    <label for="first_name">First name </label>
+                    <p><input type="text" name="first_name" id="" required></p>
+                    <label for="last_name">Last name </label>
+                    <p><input type="text" name="last_name" id="" required></p>
+                    <label for="rating">Rating </label>
+                    <p><input type="number" name="rating" id="" required> </p>
+                    <label for="movieID">Favorite movie </label>
+                    <p>
+                        <select name="favorite_movie_id" id="">
+                            <option value="" disabled selected>- select movie -</option>
+                            <% movies.forEach(movie => { %>
+                             <option value="<%= movie.id %>"><%= movie.title %> </option>
+                            <% }) %>
+                        </select>
+                    </p>
+                    <br>
+                    <p>
+                        <button class="botonAgregar" type="submit">Agregar</button>
+                        <a class="botonVolver" href="/actors">Listado de Actores</a>
+                    </p>
+                </form>
+            </section>
+        </main>
+    </body>
+</html>
