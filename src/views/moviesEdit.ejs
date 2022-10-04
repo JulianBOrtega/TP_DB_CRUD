@@ -7,7 +7,7 @@
         <main>
             <h1 class="titulo">Película Editada:  <%= movie.title %></h1>
             <section class="formulario">
-                <form action="/actors/update/<%= actor.id %>" method="POST">
+                <form action="/actors/update/<%= movie.id %>" method="POST">
                     <label for="title">Title </label>
                     <p><input type="text" name="title" id="" value="<%= movie.title %>" required></p>
                     <label for="rating">Rating </label>
